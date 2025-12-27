@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DataColumnDialog</class>
+ <widget class="QDialog" name="DataColumnDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>750</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>数据列定义</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+    /* 基础样式 */
+    QDialog { background-color: #ffffff; color: #333333; font-family: &quot;Microsoft YaHei&quot;, Arial; }
+    QLabel { color: #333333; background-color: transparent; font-size: 13px; }
+
+    /* 下拉框美化 */
+    QComboBox {
+        color: #333333;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        padding: 4px 10px;
+        min-height: 24px;
+    }
+    QComboBox:hover { border: 1px solid #4a90e2; }
+    QComboBox:focus { border: 1px solid #4a90e2; background-color: #fcfcfc; }
+
+    /* 下拉箭头区域 */
+    QComboBox::drop-down {
+        subcontrol-origin: padding;
+        subcontrol-position: top right;
+        width: 20px;
+        border-left-width: 0px; /* 去除中间分割线 */
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+
+    /* 绘制下拉小三角 */
+    QComboBox::down-arrow {
+        image: none; /* 禁用默认图片 */
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 5px solid #666666; /* 深灰色倒三角 */
+        width: 0;
+        height: 0;
+        margin-right: 6px;
+    }
+    QComboBox::down-arrow:hover { border-top: 5px solid #4a90e2; }
+
+    /* 下拉列表项 */
+    QComboBox QAbstractItemView {
+        color: #333333;
+        background-color: #ffffff;
+        selection-background-color: #e6f3ff;
+        selection-color: #333333;
+        border: 1px solid #cccccc;
+        outline: none;
+    }
+
+    /* 输入框 */
+    QLineEdit {
+        color: #333333;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        padding: 4px;
+    }
+
+    /* 复选框 */
+    QCheckBox { color: #333333; background-color: transparent; }
+    QCheckBox::indicator { width: 16px; height: 16px; border: 1px solid #cccccc; border-radius: 2px; }
+    QCheckBox::indicator:checked { background-color: #4a90e2; border-color: #4a90e2; image: url(:/icons/check.png); }
+    /* 注：如果没有check图标，纯色也可以，或者使用默认 */
+
+    /* 按钮 */
+    QPushButton {
+        color: white;
+        background-color: #4a90e2;
+        border: none;
+        border-radius: 4px;
+        padding: 6px 16px;
+        font-weight: bold;
+    }
+    QPushButton:hover { background-color: #357abd; }
+    QPushButton:pressed { background-color: #2a628a; }
+
+    QScrollArea { background-color: white; border: none; }
+    QWidget#scrollContent { background-color: white; }
+   </string>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+   <item>
+    <widget class="QLabel" name="infoLabel">
+     <property name="text">
+      <string>为每列数据定义物理意义和单位，将替换原列名：</string>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollContent">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>730</width>
+        <height>400</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="scrollLayout"/>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="buttonLayout">
+     <item>
+      <widget class="QPushButton" name="btnPreset">
+       <property name="text">
+        <string>自动识别</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnReset">
+       <property name="text">
+        <string>重置</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #fd7e14;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnOk">
+       <property name="text">
+        <string>确定</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #28a745;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnCancel">
+       <property name="text">
+        <string>取消</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #6c757d;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+</ui>
